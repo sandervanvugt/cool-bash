@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# choosedir: demonstrates making a menu with select
+
+echo 'choose a directory: ' 
+select dir in /bin /usr /etc
+do
+	if [ -n "dir" ]
+	then
+		DIR=$dir
+		echo you have selected $DIR
+		export DIR
+		break
+	else
+		echo invalid choice
+	fi
+done

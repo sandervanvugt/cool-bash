@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Determine what $1. If it's a file, edit it. If it's a directory, cd to it
+
+# determining what it is
+
+([ ! -e $1 ] && exit 1) || ([ -f $1 ] && vi $1) ||  cd $1 
+

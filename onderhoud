@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# maintenance menu: select from some common maintenance tasks
+
+echo 'select a task: ' 
+select task in 'Show mounted File Systems'\
+		'Show Available Disk Space'\
+		'Show Current Memory Usage'
+#select task in a b c
+do
+	case $ANTWOORD in
+	1) ANTWOORD='mount -a' ;;
+	2) ANTWOORD='df -h' ;;
+	3) ANTWOORD='free -m' ;;
+	*) echo invalid choise ;;
+	esac
+	if [ -n "taak" ]
+	then
+		echo uw antwoord is $ANTWOORD
+		echo druk op een toets om uw taak uit te voeren
+		read
+		echo $ANTWOORD
+		break
+	fi
+done
