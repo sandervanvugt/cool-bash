@@ -2,7 +2,10 @@
 #
 # Determine what $1. If it's a file, edit it. If it's a directory, cd to it
 
-# determining what it is
+[ -z $1 ] && exit 6
 
-([ ! -e $1 ] && exit 1) || ([ -f $1 ] && vi $1) ||  cd $1 
+[ -f $1 ] && vi $1 && exit
 
+[ -d $1 ] && cd $1 && exec bash
+
+echo not a file or directory

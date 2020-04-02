@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#
+#
+#
+
+if [ -z $1 ]
+then
+	echo no argument
+	exit 2
+elif [ ! -e $1 ]
+then
+	echo unknown argument
+	exit 3
+elif [ -d $1 ]
+then
+	echo it's a directory
+# at this point it must be a file, let's find out what type of file
+elif [ ! -f $1 ]
+then
+	echo some special file
+elif [ -x $1 ]
+then
+	echo executable file
+elif grep '#!/bin/bash' $1 
+then
+	echo it's a bash file that is not executable yet
+	chmod +x $1
+else
+	echo you shouldn't get here
+fi	
