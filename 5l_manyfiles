@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo how many files do you want to create
+read NUMBER
+
+CURRENT=1
+while [ $CURRENT -le $NUMBER ]
+do
+	echo some text > file$CURRENT
+done
