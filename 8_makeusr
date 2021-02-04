@@ -23,8 +23,8 @@
 				? ) helpmessage ;;
 				* ) usage ;;
 			esac
-	done
 	shift $(($OPTIND -1))
+	done
 
 	if [ -z "$1" ]; then
 			usage
